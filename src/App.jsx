@@ -20,7 +20,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-const defaultCode = `# Character Frequency Counter
+const defaultCode = `# For now this can only Interpret Basic Assignments,
+# Operators,List,Dict,List and Dict functions : append and pop
+# Character Frequency Counter
 text = "hello"
 counts = {}
 
@@ -141,20 +143,22 @@ function App() {
             </div>
           </div>
           </CardContent>
-          <CardContent>
+        
           <div className="p-4 grid grid-cols-[auto_1fr] gap-x-6 text-sm">
             {isVisualizing && currentStep && Object.keys(currentStep.scope).length > 0 ? (
               Object.entries(currentStep.scope).map(([key, value]) => (
+                
                 <div key={key} className="col-span-2 grid grid-cols-subgrid border-t border-border py-3 items-center">
                   <p className="text-muted-foreground">{key}</p>
                   <p className="font-mono whitespace-pre-wrap">{JSON.stringify(value)}</p>
                 </div>
+                
               ))
             ) : (
               <p className="col-span-2 text-muted-foreground italic">Run code to see variables</p>
             )}
           </div>
-          </CardContent>
+         
           
           {isVisualizing && currentStep && (
             <p className="text-muted-foreground text-sm px-4">Message: {currentStep.message}</p>
